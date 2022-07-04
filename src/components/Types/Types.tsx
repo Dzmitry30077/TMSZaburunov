@@ -30,3 +30,13 @@ export interface IEvent {
   id: string
   provider: string
 }
+
+export interface IFeaturedCardProps {
+  id: number;
+  img: string;
+  title: string;
+	cardText?: string;
+	postDate?: string;
+	postRead?: string;
+	author?: string;
+}

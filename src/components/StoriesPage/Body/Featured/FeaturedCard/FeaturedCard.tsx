@@ -1,23 +1,15 @@
 import { url } from 'inspector';
 import { useEffect, useState } from 'react';
 import './FeaturedCard.css';
-
-interface IFeaturedCardProps {
-  id: number;
-  img: string;
-  title: string;
-	cardText?: string;
-	postDate?: string;
-	postRead?: string;
-	author?: string;
-}
+import { Link, useParams } from 'react-router-dom';
+import { IFeaturedCardProps } from '../../../../Types/Types';
 
 
-const FeaturedCard: React.FC<IFeaturedCardProps> = ({id, img, title, cardText, postDate, postRead, author}) => {
+const FeaturedCard: React.FC<IFeaturedCardProps> = ({img, title, cardText, postDate, postRead, author}) => {
 
-
-  return (
-    <div className="card">
+	return (
+		<Link to={`/PostPage`}>
+			<div className="card">
 			<div className="row">
 				<div className="col-md-5 wrapthumbnail">
 					<a href="post.html">
@@ -45,6 +37,8 @@ const FeaturedCard: React.FC<IFeaturedCardProps> = ({id, img, title, cardText, p
 				</div>
 			</div>
 	  </div>
+		</Link>
+
   )
 }
 

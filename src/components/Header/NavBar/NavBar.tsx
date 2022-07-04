@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './NavBar.css'
 
 const logo: string = require('../../Icons/logo.png')
@@ -11,19 +12,19 @@ const NavBar = () => {
         <span className="navbar-toggler-icon"></span>
       </button>
       <div className="container">
-        <a className="navbar-brand" href="index.html">
-          <img src= {logo} alt="Logo" />
-        </a>
+        <Link to='/StoriesPage' className='navbar-brand'>
+        <img src= {logo} alt="Logo" />
+        </Link>
         <div className="collapse navbar-collapse" id="navbarsExampleDefault">
           <ul className="navbar-nav ml-auto">
             <li className="nav-item active">
-              <a className="nav-link" href="index.html">Stories<span className="sr-only">(current)</span></a>
+            <Link to='/StoriesPage' className='nav-link'>Stories</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="post.html">Post</a>
+              <Link to='/PostPage' className='nav-link'>Post</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="author.html">Author</a>
+              <Link to='/AuthorPage' className='nav-link'>Author</Link>
             </li>
           </ul>
           <form className="form-inline my-2 my-lg-0">

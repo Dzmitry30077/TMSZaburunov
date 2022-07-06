@@ -1,6 +1,5 @@
 import SocialMediaShare from "../../SocialMediaShare/SocialMediaShare"
 
-
 const Post = () => {
 
   return (

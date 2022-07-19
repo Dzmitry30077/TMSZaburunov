@@ -8,6 +8,15 @@ export interface IReports {
   publishedAt: string
 }
 
+export interface IPost {
+  title: string
+  url: string
+  imageUrl: string
+  newsSite: string
+  summary: string
+  publishedAt: string
+}
+
 export interface IArticle {
   id: number
   featured?: boolean
@@ -32,7 +41,7 @@ export interface IEvent {
 }
 
 export interface IFeaturedCardProps {
-  id: number;
+  id?: number;
   img: string;
   title: string;
 	cardText?: string;
@@ -40,3 +49,12 @@ export interface IFeaturedCardProps {
 	postRead?: string;
 	author?: string;
 }
+
+export interface IState {
+  articles: IArticle[] | [];
+  article: IArticlePost;
+  filteredArticles: IArticle[] | [];
+  searchString: string;
+}
+
+export type IArticlePost = IArticle

@@ -1,4 +1,6 @@
-const Related = () => {
+import { IFeaturedCardProps } from "../../../../Types/Types";
+
+const Related: React.FC<IFeaturedCardProps> = ( {img, title, postRead, postDate, author} ) => {
 return (
   <div className="graybg">
     <div className="container">
@@ -6,10 +8,10 @@ return (
         <div className="col-md-4">
           <div className="card">
             <a href="post.html">
-              <img className="img-fluid img-thumb" src="assets/img/demopic/9.jpg" alt="" />
+              <img className="img-fluid img-thumb" src={img} alt="" />
             </a>
             <div className="card-block">
-              <h2 className="card-title"><a href="post.html">Best recreational places to visit on a holiday</a></h2>
+              <h2 className="card-title"><a href="post.html">{title}</a></h2>
               <div className="metafooter">
                 <div className="wrapfooter">
                   <span className="meta-footer-thumb">
@@ -18,8 +20,8 @@ return (
                         alt="Sal" /></a>
                   </span>
                   <span className="author-meta">
-                    <span className="post-name"><a href="author.html">Sal</a></span><br />
-                    <span className="post-date">22 July 2017</span><span className="dot"></span><span className="post-read">6 min
+                    <span className="post-name"><a href="author.html">{author}</a></span><br />
+                    <span className="post-date">{postDate}</span><span className="dot"></span><span className="post-read">{postRead}
                       read</span>
                   </span>
                   <span className="post-read-more"><a href="post.html" title="Read Story"><svg className="svgIcon-use" width="25"

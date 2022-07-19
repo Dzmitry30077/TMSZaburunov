@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Stories from "./Stories";
-import { IReports } from "../../../Types/Types";
+import { IReports } from "../../../../Types/Types";
 import './Stories.css'
 
 

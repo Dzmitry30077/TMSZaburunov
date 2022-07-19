@@ -1,20 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-
 import './App.css'
-import StoriesPage from '../StoriesPage/StoriesPage';
-import PostPage from '../PostPage/PostPage';
+import StoriesPage from '../Pages/StoriesPage/StoriesPage';
+import PostPage from '../Pages/PostPage/PostPage';
 import { Route, Routes } from 'react-router-dom';
-import AuthorPage from '../AuthorPage/AuthorPage';
+import AuthorPage from '../Pages/AuthorPage/AuthorPage';
+import { Provider } from 'react-redux'
+import { store } from '../store/store';
 
 function App() {
   return (
-    <Routes>
-      <Route index element={<StoriesPage />} />
-      <Route path='StoriesPage' element={<StoriesPage />} />
-      <Route path='PostPage' element={<PostPage />} />
-      <Route path='AuthorPage' element={<AuthorPage />} />
-    </Routes>
+    <Provider store={store}>
+        <Routes>
+        <Route index element={<StoriesPage />} />
+        <Route path='/StoriesPage' element={<StoriesPage />} />
+        <Route path='/PostPage/:id' element={<PostPage />} />
+        <Route path='/AuthorPage/:id' element={<AuthorPage />} />
+      </Routes>
+    </Provider>
   );
 }
 

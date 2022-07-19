@@ -1,9 +1,9 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
-import './NavBar.css'
 
-const logo: string = require('../../Icons/logo.png')
+const logo: string = require('../../../assets/Icons/logo.png')
 
-const NavBar = () => {
+const NavBar: React.FC = () => {
   return (
     <nav className="navbar navbar-toggleable-md navbar-light bg-white fixed-top mediumnavigation">
       <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
@@ -21,7 +21,7 @@ const NavBar = () => {
             <Link to='/StoriesPage' className='nav-link'>Stories</Link>
             </li>
             <li className="nav-item">
-              <Link to='/PostPage' className='nav-link'>Post</Link>
+              <Link to='/PostPage/' className='nav-link'>Post</Link>
             </li>
             <li className="nav-item">
               <Link to='/AuthorPage' className='nav-link'>Author</Link>

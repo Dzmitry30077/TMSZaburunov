@@ -1,22 +1,29 @@
 import { useState, useEffect } from "react";
 import FeaturedCard from "./FeaturedCard/FeaturedCard";
-import { IArticle } from "../../../Types/Types";
+import { IArticle, IState, IArticlePost } from "../../../../Types/Types";
+import { useDispatch, useSelector } from "react-redux";
+import { pushArticles } from "../../../../store/action";
 
-const url = 'https://api.spaceflightnewsapi.net/v3/articles';
+
+const url = "https://api.spaceflightnewsapi.net/v3/articles";
 
 const Featured: React.FC = () => {
-  const [featuredCards, setFeaturedCards] = useState<IArticle[] | []>([]);
   const [loading, setLoading] = useState<boolean>(true);
+
+  const dispatch = useDispatch();
+
+  const articles = useSelector<IState, IArticle[]>((state) => state.articles);
 
   useEffect(() => {
     fetch(url)
       .then((response) => response.json())
       .then((results) => {
-        setFeaturedCards(results);
+        dispatch(pushArticles(results));
+
         setLoading(false);
       })
       .catch(console.error);
-  }, []);
+  }, [dispatch]);
 
   return (
   <section className="featured-posts">
@@ -24,8 +31,8 @@ const Featured: React.FC = () => {
 	    <h2><span>Featured</span></h2>
 	  </div>
 	  <div className="card-columns listfeaturedtag">
-      {!loading ?
-        featuredCards.map((card: IArticle) => {
+    {!loading ?
+        articles.map((card: IArticle) => {
           return (
             <FeaturedCard
               id={card.id}
